@@ -16,18 +16,18 @@ app.use(compresssion());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
-const server =http.createServer(app);
+const server = http.createServer(app);
 
-server.listen(8080,()=>{
+server.listen(8080, () => {
     console.log('Server is running on port 8080');
 });
 
 
-const MONGO_URL= "";
+const MONGO_URL = "mongodb://localhost:27017/rest-api";
 
-mongoose.Promise =Promise;
+mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL)
-mongoose.connection.on('error',(error)=>{
-    console.log('MongoDB connection error:',error);
+mongoose.connection.on('error', (error) => {
+    console.log('MongoDB connection error:', error);
     process.exit(1);
 });
