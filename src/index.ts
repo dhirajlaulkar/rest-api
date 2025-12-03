@@ -5,6 +5,7 @@ import cors from 'cors';
 import compresssion from 'compression';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
+import router from './router';
 
 const app = express();
 
@@ -31,3 +32,5 @@ mongoose.connection.on('error', (error) => {
     console.log('MongoDB connection error:', error);
     process.exit(1);
 });
+
+app.use('/', router())
